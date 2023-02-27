@@ -10,5 +10,6 @@ export interface Pet{
     weight: number;
     coatType: string;
     treatment: string;
+    imageUrl: string;
     petCode: string;
 }

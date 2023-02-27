@@ -1,5 +1,6 @@
 package Projeto.BackEndPetShop.model;
 
+import Projeto.BackEndPetShop.ennum.Treatment;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,25 @@ public class Pet implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,  updatable = false)
     private Long id;
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", emailOwner='" + emailOwner + '\'' +
+                ", numberOwner='" + numberOwner + '\'' +
+                ", nameOwner='" + nameOwner + '\'' +
+                ", specie='" + specie + '\'' +
+                ", race='" + race + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", coatType='" + coatType + '\'' +
+                ", treatment='" + treatment + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", petCode='" + petCode + '\'' +
+                '}';
+    }
 
     private String name;
 
@@ -32,26 +52,11 @@ public class Pet implements Serializable {
 
     private String coatType;
 
-    private String treatment;
+    @Enumerated(EnumType.STRING)
+    private Treatment treatment;
+
+    private String imageUrl;
 
     @Column(nullable = false, updatable = false)
     private String petCode;
-
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", emailOwner='" + emailOwner + '\'' +
-                ", numberOwner='" + numberOwner + '\'' +
-                ", nomeOwner='" + nameOwner + '\'' +
-                ", specie='" + specie + '\'' +
-                ", race='" + race + '\'' +
-                ", height='" + height + '\'' +
-                ", weight='" + weight + '\'' +
-                ", coatType='" + coatType + '\'' +
-                ", treatment='" + treatment + '\'' +
-                ", petCode='" + petCode + '\'' +
-                '}';
-    }
 }

@@ -25,17 +25,22 @@
             <div class="card m-b-30">
                 <div class="card-body row">
                     <div class="col-6">
-                        <!-- <a href=""><img src="{{pet?.name}}" alt="" class="img-fluid rounded-circle w-60"></a> -->
+                        <a href=""><img src="{{pet?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
                     </div>
                     <div class="col-6 card-title align-self-center mb-0">
                         <h5>{{pet.name}}</h5>
                         <p class="m-0">{{pet.nameOwner}}</p>
                     </div>
                 </div>
-                <p>{{pet?.nameOwner}}</p>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">{{pet.emailOwner}}</a></li>
-                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone :{{pet.numberOwner}}</li>
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email: <a href="#">{{pet.emailOwner}}</a></li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone: {{pet.numberOwner}}</li>
+                    <li class="list-group-item"><i></i>Specie: {{pet.specie}}</li>
+                    <li class="list-group-item"><i></i>Race: {{pet.race}}</li>
+                    <li class="list-group-item"><i></i>Coat Type: {{pet.coatType}}</li>
+                    <li class="list-group-item"><i></i>Weight: {{pet.weight}}</li>
+                    <li class="list-group-item"><i></i>Height: {{pet.height}}</li>
+                    <li class="list-group-item"><i></i>Last Treatment: {{pet.treatment}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="float-right btn-group btn-group-sm">
@@ -102,6 +107,10 @@
                 <label for="phone">Treatment</label>
                 <input type="text" ngModel name="treatment" class="form-control" id="treatment" placeholder="Treatment" required>
              </div>
+             <div class="form-group">
+               <label for="phone">Image URL</label>
+               <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+            </div>
             <div class="modal-footer">
                <button type="button" id="add-pet-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
                <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
@@ -164,8 +173,16 @@
                       </div>
                       <div class="form-group">
                          <label for="phone">Treatment</label>
+                         <!-- <select name="treatment" id="treatment" class="form-control" data-toggle="modal" required> 
+                           <option value="Tosa">Tosa</option>
+                           <option value="Banho">Banho</option>
+                         </select> -->
                          <input type="text" ngModel="{{editPet?.treatment}}" name="treatment" class="form-control" id="treatment" placeholder="Treatment" required>
                       </div>
+                      <div class="form-group">
+                        <label for="phone">Image URL</label>
+                        <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+                     </div>
                 <div class="modal-footer">
                    <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
                    <button (click)="onUpdatePet(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
