@@ -36,6 +36,6 @@ public class PetService {
     }
 
     public void deletePet(Long id) {
-        petRepo.deletePetById(id);
+        petRepo.deleteById(id);
     }
 }
